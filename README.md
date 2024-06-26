@@ -15,6 +15,10 @@ This is a simple URL shortener built with Node.js and MongoDB.
     ```bash
     cd Node_url_shortener
     npm install
+    npm i express
+    npm i mongoose
+    npm i shortid
+    npm i nodemon
     ```
 
 3. Set up the MongoDB connection:
