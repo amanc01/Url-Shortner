@@ -11,6 +11,11 @@ connectToDb('mongodb://127.0.0.1:27017/url-shortner')
 
 app.use(express.json());//to parse the incoming request with JSON payloads
 
+app.get('/test', (req, res)=>{
+    return res.end('<h1> Hey from server</h1>')
+})
+
+
 app.use("/url", urlRoute);
 
 app.get('/:shortId', async (req, res) => {
@@ -19,6 +24,7 @@ app.get('/:shortId', async (req, res) => {
         shortId
     },
         {
+            //as we are using $push, we are adding the new visit to the end of the array
             $push: {
                 visitHistory: {
                     timestamp: Date.now()
